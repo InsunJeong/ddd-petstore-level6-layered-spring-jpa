@@ -8,10 +8,10 @@
 		<version>2.6.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hea</groupId>
-	<artifactId>campaign</artifactId>
+	<groupId>com.hea.eztalk</groupId>
+	<artifactId>campaign-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>campaign</name>
+	<name>campaign-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
