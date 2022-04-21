@@ -8,12 +8,17 @@ import java.time.format.DateTimeFormatter;
 
 import com.demo.petstore.domain.Campaign;
 import com.demo.petstore.domain.CampaignDetail;
+import com.demo.petstore.domain.CampaignRepository;
 import com.demo.petstore.domain.Dog;
 import com.demo.petstore.domain.Pet;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @SpringBootApplication
 public class PetstoreApplication {
@@ -66,6 +71,17 @@ public class PetstoreApplication {
 		campaignDetail.setAmount(Double.valueOf(150000));
 		campaignDetail.setPayDate(LocalDateTime.now(ZoneId.of("Asia/Seoul")));
 		campaignDetail.save();
+	}
+
+
+	@Autowired
+	CampaignRepository campaignRepository;
+	
+	@RequestMapping(method = RequestMethod.PUT, path="campaigns/{campaignId}/input")
+	public void input(@PathVariable(value = "campaignId") Long campaignId){
+
+		Campaign campaign = campaignRepository.findById(campaignId).get();
+		System.out.println("Ddddddddddddddddd " + campaign.getCampaignTitle());
 	}
 
 }

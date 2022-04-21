@@ -15,6 +15,8 @@ public class Campaign {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long campaignId;         // 캠페인 ID
     String campaignTitle;   // 캠페인명
+
+    @Column(nullable = false)
     String campaignDesc;    // 캠페인 설명
     String startDate; // 캠페인 시작일자
     String endDate;   // 캠페인 종료일자
