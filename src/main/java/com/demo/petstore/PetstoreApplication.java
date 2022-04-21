@@ -1,5 +1,13 @@
 package com.demo.petstore;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+
+import com.demo.petstore.domain.Campaign;
+import com.demo.petstore.domain.CampaignDetail;
 import com.demo.petstore.domain.Dog;
 import com.demo.petstore.domain.Pet;
 
@@ -35,7 +43,29 @@ public class PetstoreApplication {
 		System.out.println(dog);
 
 		dog.save();
+		
+		Campaign campaign = new Campaign();
+		campaign.setCampaignTitle("campaignTitle");
+		campaign.setCampaignDesc("campaignDesc");
+		campaign.setCreateDate(LocalDateTime.now(ZoneId.of("Asia/Seoul")));
+		campaign.setModifyDate(LocalDateTime.now(ZoneId.of("Asia/Seoul")));
+		campaign.setApproveYn("N");
+		campaign.setCampaignStatus("1");
+		campaign.setLeastPayAmount("100000");
+		campaign.setTargetAmount("3000000000000");
+		campaign.setAccountStaffId("asdf1234");
+		campaign.setRepresentativeId("zxcv7890");
+		campaign.setStartDate("20220310");
+		campaign.setEndDate("20220409");
+		campaign.save();
 
+
+		CampaignDetail campaignDetail = new CampaignDetail();
+		campaignDetail.setUserId("asdf1234");
+		campaignDetail.setCampaignId(Long.valueOf(12));
+		campaignDetail.setAmount(Double.valueOf(150000));
+		campaignDetail.setPayDate(LocalDateTime.now(ZoneId.of("Asia/Seoul")));
+		campaignDetail.save();
 	}
 
 }
