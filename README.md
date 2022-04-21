@@ -88,6 +88,9 @@ MariaDB [petstore]> select * from Pet;
 
 ```
 
+http :8083/petstore pet_type="Cat", appearance="1", energy="6", name="야옹이"
+
+
 ## 다음: 도메인 영역의 확장 (Single Model, Big Ball Of Mud)
 - Store 업무 영역의 추가
 - 비대한 Monolith
